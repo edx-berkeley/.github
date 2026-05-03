@@ -51,7 +51,7 @@ Four GitHub Apps are installed on this org. All are used exclusively by GitHub A
 | App slug | App ID | Purpose | Used by |
 |---|---|---|---|
 | `edx-image-builder` | 3380935 | Writes to edx-hub: opens and updates the auto-PR that bumps the `edx-user-image` tag in the deployment config | [edx-user-image](https://github.com/edx-berkeley/edx-user-image) (`build-push-create-pr.yaml`) |
-| `course-content-reader` | 3484933 | Reads autograder repos at runtime to fetch the correct autograder zip for a given submission | [otter-service](https://github.com/edx-berkeley/otter-service) (runtime, via `OTTER_AUTOGRADERS_*` env vars) |
+| `course-content-reader` | 3484933 | Reads autograder repos at runtime to fetch the correct autograder zip for a given submission | [otter-service](https://github.com/edx-berkeley/otter-service) and [edx-user-image](https://github.com/edx-berkeley/edx-user-image) (via `COURSE_CONTENT_READER_*` env vars) |
 | `edx-notebook-distributor` | 3537861 | Writes student-facing and solutions notebooks to the `-student` and `-dev` repos after `otter-assign` processing | [xDevs](https://github.com/edx-berkeley/xDevs) (notebook distribution workflow) |
 | `edx-hub-read-ci` | 3570619 | Reads edx-hub (private) to resolve the currently deployed `edx-user-image` tag during notebook CI | [xDevs](https://github.com/edx-berkeley/xDevs) (`notebook-ci.yml`, referenced as `NOTEBOOK_CI_APP_ID`) |
 
@@ -88,16 +88,16 @@ There are no org-level Actions variables or secrets. All variables and secrets a
 | `EDX_IMAGE_BUILDER_APP_ID` | App ID for the `edx-image-builder` GitHub App (opens PRs in edx-hub) |
 | `IMAGE_BUILDER_BOT_EMAIL` | Git author email for automated commits to edx-hub |
 | `IMAGE_BUILDER_BOT_NAME` | Git author name for automated commits to edx-hub |
-| `OTTER_AUTOGRADERS_APP_ID` | App ID for the `course-content-reader` GitHub App (reads autograder repos) |
-| `OTTER_AUTOGRADERS_INSTALLATION_ID` | Installation ID for the `course-content-reader` GitHub App |
+| `COURSE_CONTENT_READER_APP_ID` | App ID for the `course-content-reader` GitHub App (reads autograder/student/solution repos) |
+| `COURSE_CONTENT_READER_INSTALLATION_ID` | Installation ID for the `course-content-reader` GitHub App |
 
 **Secrets**
 
 | Name | Description |
 |---|---|
 | `GAR_SECRET_KEY_EDX` | GCP service account JSON key with push access to Google Artifact Registry |
-| `PRIVATE_KEY_SECRET` | Private key for the `edx-image-builder` GitHub App |
-| `OTTER_GH_APP_PRIVATE_KEY` | Private key for the `course-content-reader` GitHub App |
+| `EDX_IMAGE_BUILDER_PRIVATE_KEY` | Private key for the `edx-image-builder` GitHub App |
+| `COURSE_CONTENT_READER_PRIVATE_KEY` | Private key for the `course-content-reader` GitHub App |
 | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel |
 
 ---
@@ -108,14 +108,16 @@ There are no org-level Actions variables or secrets. All variables and secrets a
 
 | Name | Description |
 |---|---|
-| `OTTER_AUTOGRADERS_APP_ID` | App ID for the `course-content-reader` GitHub App |
-| `OTTER_AUTOGRADERS_INSTALLATION_ID` | Installation ID for the `course-content-reader` GitHub App |
+| `EDX_IMAGE_BUILDER_APP_ID` | App ID for the `edx-image-builder` GitHub App (opens release PRs in edx-hub) |
+| `COURSE_CONTENT_READER_APP_ID` | App ID for the `course-content-reader` GitHub App |
+| `COURSE_CONTENT_READER_INSTALLATION_ID` | Installation ID for the `course-content-reader` GitHub App |
 
 **Secrets**
 
 | Name | Description |
 |---|---|
-| `OTTER_AUTOGRADERS_PRIVATE_KEY` | Private key for the `course-content-reader` GitHub App |
+| `EDX_IMAGE_BUILDER_PRIVATE_KEY` | Private key for the `edx-image-builder` GitHub App |
+| `COURSE_CONTENT_READER_PRIVATE_KEY` | Private key for the `course-content-reader` GitHub App |
 | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel |
 
 ---
