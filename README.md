@@ -1,6 +1,6 @@
 # edx-berkeley
 
-This org hosts the infrastructure, tooling, and course content for the Data 8x edX program at UC Berkeley. The courses are self-paced Jupyter-based courses graded via an otter-grader service running on GKE.
+This org hosts the infrastructure, tooling, and course content for the UCB Data Science edX program. The courses are self-paced Jupyter-based courses graded via an otter-grader service running on GKE.
 
 ---
 
@@ -20,14 +20,10 @@ This org hosts the infrastructure, tooling, and course content for the Data 8x e
 | Repository | Visibility | Purpose |
 |---|---|---|
 | [xDevs](https://github.com/edx-berkeley/xDevs) | Private | Shared instructor dev repo for 88B, 88C, 88E, 8X. Raw source notebooks are processed with `otter-assign` to produce student releases, solutions, and autograder zips. |
-| [88B-dev](https://github.com/edx-berkeley/88B-dev) | Private | Instructor notebooks and configs for Data 88B. |
-| [88C-dev](https://github.com/edx-berkeley/88C-dev) | Private | Instructor notebooks and configs for Data 88C. |
-| [88E-online_dev](https://github.com/edx-berkeley/88E-online_dev) | Private | Instructor notebooks and configs for Data 88E (online). |
 | [88B-student](https://github.com/edx-berkeley/88B-student) | Public | Student-facing lab notebooks for Data 88B. |
 | [88C-student](https://github.com/edx-berkeley/88C-student) | Public | Student-facing lab notebooks for Data 88C. |
 | [88E-student](https://github.com/edx-berkeley/88E-student) | Public | Student-facing lab notebooks for Data 88E. |
 | [8X-student](https://github.com/edx-berkeley/8X-student) | Public | Student-facing lab notebooks for Data 8X. |
-| [88E-online](https://github.com/edx-berkeley/88E-online) | Private | Published online course materials for Data 88E. |
 
 ### Autograders
 
@@ -45,10 +41,6 @@ This org hosts the infrastructure, tooling, and course content for the Data 8x e
 | [otter-submit](https://github.com/edx-berkeley/otter-submit) | Public | Student-side submission helper that packages a notebook and POSTs it to otter-service. |
 | [edx-support](https://github.com/edx-berkeley/edx-support) | Internal | Support tooling (course roster management, LTI utilities). |
 | [edx-usage](https://github.com/edx-berkeley/edx-usage) | Public | Scripts for pulling and reporting edX course usage data. |
-| [data8-materials](https://github.com/edx-berkeley/data8-materials) | Internal | Archived Data 8 course materials. |
-| [data8x](https://github.com/edx-berkeley/data8x) | Private | Archived Data 8x course website (Jekyll). |
-| [data8x-materials18](https://github.com/edx-berkeley/data8x-materials18) | Private | Archived 2018 course materials. |
-| [data8x-materials19](https://github.com/edx-berkeley/data8x-materials19) | Private | Archived 2019 course materials. |
 
 ---
 
