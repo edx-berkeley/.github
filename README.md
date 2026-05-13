@@ -143,7 +143,7 @@ There are no org-level Actions variables or secrets. All variables and secrets a
 
 ## Infrastructure Overview
 
-All services run on the `edx` GKE cluster in GCP project `data8x-scratch`, region `us-central1`.
+All services run on the `edx` GKE cluster in GCP project `data8x-scratch`, zone `us-central1-b`.
 
 | Namespace | Service | Node pool |
 |---|---|---|
