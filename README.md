@@ -166,7 +166,7 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `EDX_HUB_READ_CI_APP_ID` | App ID for `edx-hub-read-ci` |
 | `EDX_HUB_READ_CI_INSTALLATION_ID` | Installation ID for `edx-hub-read-ci` |
 | `DOCKERHUB_USERNAME` | Docker Hub username (rate-limit auth for image pulls in CI) |
-| `EDX_USERNAME` | edX login username (edx-usage scripts) |
+| `EDX_SERVICE_ACCOUNT_EMAIL` | edX service-account email (edx-support, edx-usage nightly CSV fetch) |
 
 **Secrets**
 
@@ -183,7 +183,7 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `JH_API_TOKEN_STAGING` | JupyterHub API token (staging) |
 | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel |
 | `DOCKERHUB_TOKEN` | Docker Hub PAT for authenticated image pulls in CI |
-| `EDX_PASSWORD` | edX login password (edx-usage scripts) |
+| `EDX_SERVICE_ACCOUNT_PASSWORD` | edX service-account password (edx-support, edx-usage nightly CSV fetch) |
 
 ### Repo-level overrides
 
