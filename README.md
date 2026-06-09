@@ -165,8 +165,8 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `EDX_NOTEBOOK_DISTRIBUTOR_INSTALLATION_ID` | Installation ID for `edx-notebook-distributor` |
 | `EDX_HUB_READ_CI_APP_ID` | App ID for `edx-hub-read-ci` |
 | `EDX_HUB_READ_CI_INSTALLATION_ID` | Installation ID for `edx-hub-read-ci` |
-| `DOCKERHUB_USERNAME` | Docker Hub username (rate-limit auth for image pulls in CI) |
-| `EDX_SERVICE_ACCOUNT_EMAIL` | edX service-account email (edx-support, edx-usage nightly CSV fetch) |
+| `DOCKERHUB_USERNAME` | Docker Hub username `edxcdss` for the Berkeley SPA `edx-ds@berkeley.edu`. Auth for image pulls in CI (currently used by `edx-user-image/.github/workflows/grader-check.yml` to dodge Docker Hub's 100-pulls/6h anonymous limit). SPA password SOPS-encrypted at [`edx-hub/deployments/edx/secrets/service-accounts.yaml`](https://github.com/edx-berkeley/edx-hub/blob/staging/deployments/edx/secrets/service-accounts.yaml). |
+| `EDX_SERVICE_ACCOUNT_EMAIL` | edX.org login email (`edx-ds@berkeley.edu` — same Berkeley SPA as `DOCKERHUB_USERNAME` above). Used by `edx-support` and `edx-usage` nightly CSV-fetch workflows. Password SOPS-encrypted at the same `service-accounts.yaml` file. |
 
 **Secrets**
 
@@ -182,8 +182,8 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `JH_API_TOKEN_PROD` | JupyterHub API token (prod) — used by otter-srv for user lookups |
 | `JH_API_TOKEN_STAGING` | JupyterHub API token (staging) |
 | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel |
-| `DOCKERHUB_TOKEN` | Docker Hub PAT for authenticated image pulls in CI |
-| `EDX_SERVICE_ACCOUNT_PASSWORD` | edX service-account password (edx-support, edx-usage nightly CSV fetch) |
+| `DOCKERHUB_TOKEN` | Docker Hub Personal Access Token for the SPA referenced by `DOCKERHUB_USERNAME` above. Rotated 2026-06-09 alongside the SPA cutover. |
+| `EDX_SERVICE_ACCOUNT_PASSWORD` | edX.org login password for the same Berkeley SPA referenced by `EDX_SERVICE_ACCOUNT_EMAIL` above. SOPS-decryptable copy at `edx-hub/deployments/edx/secrets/service-accounts.yaml` (single source of truth for the SPA password). |
 
 ### Repo-level overrides
 
