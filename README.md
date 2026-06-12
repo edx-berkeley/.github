@@ -46,7 +46,7 @@ This org hosts the infrastructure, tooling, and course content for the UCB Data 
 
 ## CI process
 
-End-to-end flow from a notebook edit through to a JupyterHub deploy. Each arrow is automated unless marked **(manual)**. Every step posts to `#edx-hub-ci` Slack on success and failure.
+End-to-end flow from a notebook edit through to a JupyterHub deploy. Each arrow is automated unless marked **(manual)**. Every step posts to `#edx-hub-ci` Slack on success and failure. A visual detailing of this process is [here](CI_PIPELINES.md)
 
 ### 1. Notebook content (xDevs → student/autograder repos)
 
@@ -181,7 +181,7 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `OTTER_LTI_CONSUMER_SECRET` | LTI consumer secret — same path as above |
 | `JH_API_TOKEN_PROD` | JupyterHub API token (prod) — used by otter-srv for user lookups |
 | `JH_API_TOKEN_STAGING` | JupyterHub API token (staging) |
-| `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel |
+<!-- | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel | -->
 | `DOCKERHUB_TOKEN` | Docker Hub Personal Access Token for the SPA referenced by `DOCKERHUB_USERNAME` above. Rotated 2026-06-09 alongside the SPA cutover. |
 | `EDX_SERVICE_ACCOUNT_PASSWORD` | edX.org login password for the same Berkeley SPA referenced by `EDX_SERVICE_ACCOUNT_EMAIL` above. SOPS-decryptable copy at `edx-hub/deployments/edx/secrets/service-accounts.yaml` (single source of truth for the SPA password). |
 
