@@ -104,7 +104,7 @@ flowchart LR
     DEV --> TEST
 ```
 
-**Important: `prod.yaml` is NOT auto-bumped.** Only `staging.yaml`. If staging→prod promotion is ever skipped or only includes config changes (not image bumps), `prod.yaml` can drift to an older tag than `staging.yaml`. This bit us 2026-06-11 — prod was on `0.1.0`, staging on `0.2.0`, and the LTI 1.3 work crashed prod's older multiauthenticator. See [[helm-lock-recovery]] for the recovery procedure + pre-promotion diff check.
+**Important: `prod.yaml` is NOT auto-bumped.** Only `staging.yaml`. If staging→prod promotion is ever skipped or only includes config changes (not image bumps), `prod.yaml` can drift to an older tag than `staging.yaml`. This bit us 2026-06-11 — prod was on `0.1.0`, staging on `0.2.0`, and the LTI 1.3 work crashed prod's older multiauthenticator. See [helm-lock-recovery](https://github.com/sean-morris/claude-memory-edx-berkeley/blob/main/helm_lock_recovery.md) for the recovery procedure + pre-promotion diff check.
 
 ---
 
