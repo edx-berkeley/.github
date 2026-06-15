@@ -179,8 +179,8 @@ Credentials shared across multiple repos live at the **org level** and are scope
 | `EDX_HUB_READ_CI_PRIVATE_KEY` | Private key for `edx-hub-read-ci` |
 | `OTTER_LTI_CONSUMER_KEY` | LTI consumer key — passed by edx-hub `deploy-otter.yaml` into the otter-srv pod for posting grades back to edX |
 | `OTTER_LTI_CONSUMER_SECRET` | LTI consumer secret — same path as above |
-| `JH_API_TOKEN_PROD` | JupyterHub API token (prod) — used by otter-srv for user lookups |
-| `JH_API_TOKEN_STAGING` | JupyterHub API token (staging) |
+| `JH_API_TOKEN_PROD` | JupyterHub API token (prod). Passed by edx-hub `deploy-otter.yaml` as `otter_secrets.jh_api_token` → otter-srv's `JUPYTERHUB_API_TOKEN`, granting `admin:auth_state` reads for LTI 1.3 AGS grade-passback. SELECTED → `edx-hub`. **Must equal the hub's `otter_grade.apiToken` in `edx-hub/deployments/edx/secrets/prod.yaml` (SOPS)** — on drift, otter-srv gets HTTP 403, can't read `auth_state`, and passback silently falls back to LTI 1.1. (Repo-level overrides deleted 2026-06-15; org is the single source.) |
+| `JH_API_TOKEN_STAGING` | JupyterHub API token (staging) — same contract against `edx-hub/deployments/edx/secrets/staging.yaml`. |
 <!-- | `SLACK_WEBHOOK_URL` | Incoming webhook URL for the `#edx-hub-ci` Slack channel | -->
 | `DOCKERHUB_TOKEN` | Docker Hub Personal Access Token for the SPA referenced by `DOCKERHUB_USERNAME` above. Rotated 2026-06-09 alongside the SPA cutover. |
 | `EDX_SERVICE_ACCOUNT_PASSWORD` | edX.org login password for the same Berkeley SPA referenced by `EDX_SERVICE_ACCOUNT_EMAIL` above. SOPS-decryptable copy at `edx-hub/deployments/edx/secrets/service-accounts.yaml` (single source of truth for the SPA password). |
